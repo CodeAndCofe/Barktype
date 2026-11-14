@@ -1,254 +1,263 @@
-*{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	-webkit-user-select: none;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+:root {
+    --bg: #261a12;
+    --panel: #33241a;
+    --line: #4a3626;
+    --dim: #8b7258;
+    --typed: #ecdcc0;
+    --amber: #d8a24a;
+    --err: #d0583f;
+    --mono: "JetBrains Mono", "Roboto Mono", ui-monospace,
+            "SF Mono", Menlo, Consolas, "Courier New", monospace;
 }
 
-body
-{
-	position: relative;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	gap: 70px;
-	background-color: #202121;
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--mono);
 }
 
-.head_part{
-	margin-top: 30vh;
-	background-color: #a3a9a4;
-	/* background-color: #D9746E; */
-	min-width: 700px;
-	display: flex;
-	gap: 70px;
-	/* flex-shrink: 1; */
-	justify-content: space-between;
-	align-items: center;
-	border-radius: 7px;
-	padding: 7px 22px;
-}
-
-.body_part{
-	padding: 19px;
-	gap: 18px;
-	max-width: 700px;
-	min-width: 500px;
-	/* background-color: #32afd9; */
-	display: flex;
-	flex-direction: column;
-}
-.counter
-{
-	font-size: 22px;
-	font-weight: 800;
-	color: #D4A24C;
-}
-.reloader
-{
-	cursor: pointer;
-	width: 50px;
-}
-.reloader img
-{
-	width: 100%;
-}
-
-.texts
-{
-	justify-content: center;
-	cursor: text;
-	display: flex;
-	flex-wrap: wrap;
-	font-size: 22px;
-	color: grey;
-}
-.texts p{
-	padding-bottom: 5px;
-}
-
-/* logos  */
-.logo
-{
-	display: flex;
-	justify-content: start;
-	flex-grow: 1;
-}
-.logo img
-{
-	width: 50px;
-	border-radius: 50px;
-}
-
-.github
-{
-	display: flex;
-	justify-content: end;
-	flex-grow: 1;
-	display: flex;
-}
-
-.github img
-{
-	width: 50px;
-}
-
-.s{
-	color: gold;
-	transition: 0.3s ease-in;
-}
-
-/* loader page */
-
-.reload {
-	
-    position: fixed;  /* Changed from absolute to fixed */
-    top: 0;
-    left: 0;
-    background-color: rgba(22, 25, 22, 0.741);
+/* Page layout */
+body {
+    background: var(--bg);
+    color: var(--typed);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
+}
+
+.app {
+    width: min(860px, 100%);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;    /* Added to ensure it's on top */
 }
 
-
-.loader {
-	width:150px;
-	height: 150px;
-	display: inline-block;
-	position: relative;
-  }
-  .loader::after,
-  .loader::before {
-	content: '';  
-	box-sizing: border-box;
-	width: 150px;
-	height: 150px;
-	border: 5px solid #FFF;
-	position: absolute;
-	left: 0;
-	top: 0;
-	animation: rotationBreak 3s ease-in-out infinite alternate;
-  }
-  .loader::after {
-	border-color: #FF3D00;
-	animation-direction: alternate-reverse;
-  }
-  
-  @keyframes rotationBreak {
-	0% {
-	  transform: rotate(0);
-	}
-	25% {
-	  transform: rotate(90deg);
-	}
-	50% {
-	  transform: rotate(180deg);
-	}
-	75% {
-	  transform: rotate(270deg);
-	}
-	100% {
-	  transform: rotate(360deg);
-	}
-  }
-
-/* text style  */
-
-.z
-{
-	margin-left: 5px;
-}
-.screen
-{
-	background-color: #1c1b1b;
-	-webkit-user-select: none;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
-.phone
-{
-	color: wheat;
-	align-items: center;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 22px;
-}
-.phone img
-{
-	border-radius: 100%;
-	box-shadow: 2px 2px 220px rgb(45, 44, 44);
-	-webkit-user-drag: none;
-	width: 50%;
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: -0.5px;
 }
 
-.last_card
-{
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	position: fixed;
-	background-color: #141313b3;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
-.results
-{
-	border-radius: 7px;
-	padding: 22px;
-	background-color: rgba(164, 157, 157, 0.739);
-	width: 500px;
-	display: flex;
-	flex-direction:column ;
-	gap: 22px;
-	justify-content: center;
-}
-.class
-{
-	color: rgb(255, 255, 255);
-	align-items: center;
-	padding: 22px;
-	display: flex;
-	justify-content: space-around;
-}
-.class img
-{
-	cursor: pointer;
-	width: 70px;
-}
-.results button
-{
-	width: 50%;
-	margin-left: 50%;
-	transform: translateX(-50%);
-	padding: 7px 0;
-	cursor: pointer;
-	background-color: rgb(214, 214, 219);
-	border:1px solid rgb(255, 255, 255);
-	border-radius: 11px;
-}
-.results button:active
-{
-	background-color: rgb(211, 205, 205);
+header a {
+    color: var(--dim);
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.hide
-{
-	display: none;
+header a:hover,
+header a:focus-visible {
+    color: var(--amber);
+}
+
+/* Configuration controls */
+.config {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+.config span {
+    color: var(--dim);
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.config button,
+.config input {
+    background: none;
+    border: 0;
+    color: var(--dim);
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.config button:hover,
+.config input:hover {
+    color: var(--typed);
+}
+
+.config button.on {
+    color: var(--bg);
+    background: var(--amber);
+}
+
+.config input {
+    width: 84px;
+    cursor: text;
+    border: 1px solid var(--line);
+    text-align: center;
+}
+
+.config input:focus {
+    outline: none;
+    border-color: var(--amber);
+    color: var(--typed);
+}
+
+.config input.on {
+    border-color: var(--amber);
+    color: var(--amber);
+}
+
+.config.locked {
+    opacity: .4;
+    pointer-events: none;
+}
+
+/* Typing area and timer */
+#clock {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--amber);
+    min-height: 52px;
+}
+
+#text {
+    position: relative;
+    height: calc(3 * 1.75em);
+    font-size: 26px;
+    line-height: 1.75;
+    overflow: hidden;
+    white-space: pre-wrap;
+    color: var(--dim);
+    scroll-behavior: smooth;
+    cursor: text;
+}
+
+#text .hint {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#text .ok {
+    color: var(--typed);
+}
+
+#text .bad {
+    color: var(--err);
+    background: rgba(208, 88, 63, .22);
+}
+
+#text .cur {
+    box-shadow: inset 2px 0 0 var(--amber);
+    animation: blink 1s steps(1) infinite;
+}
+
+/* Cursor animation */
+@keyframes blink {
+    50% {
+        box-shadow: inset 2px 0 0 transparent;
+    }
+}
+
+/* Results section */
+#result {
+    display: none;
+    gap: 40px;
+    align-items: baseline;
+    flex-wrap: wrap;
+    min-height: calc(3 * 1.75em);
+}
+
+#result div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#result small {
+    color: var(--dim);
+    font-size: 14px;
+}
+
+#result b {
+    font-size: 56px;
+    color: var(--amber);
+    line-height: 1;
+}
+
+/* Action buttons */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#go {
+    background: var(--amber);
+    color: var(--bg);
+    border: 0;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#go:hover {
+    filter: brightness(1.1);
+}
+
+#go:focus-visible,
+.config button:focus-visible {
+    outline: 2px solid var(--typed);
+    outline-offset: 2px;
+}
+
+.keys {
+    color: var(--dim);
+    font-size: 13px;
+}
+
+/* Mobile message */
+.mobile-note {
+    display: none;
+}
+
+/* Responsive layout */
+@media (max-width: 670px) {
+    .app {
+        display: none;
+    }
+
+    .mobile-note {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        min-height: 100vh;
+        color: var(--amber);
+        font-size: 22px;
+    }
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #text {
+        scroll-behavior: auto;
+    }
+
+    #text .cur {
+        animation: none;
+    }
 }

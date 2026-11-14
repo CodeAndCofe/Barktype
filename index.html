@@ -1,52 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barktype</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="head_part">
-		<div class="logo"><img src="assets/adil_ferryat_re_build_like_this_to_be_better_and_more_nicer_for_798c6cac-1b0f-4643-93f9-4bfd78c4c813.png" alt=""></div>
-		<div class="github">
-		<a href="https://github.com/CodeAndCofe">
-			<img src="assets/github-mark.png" alt="">
-		  </a>
-		</div>
-	</div>
-	<div class="body_part">
-		<div class="counter">0</div>
-		<div class="texts">
-		</div>
-	</div>
-	<div class="reloader" id="l">
-			<img src="assets/icons8-refresh-120.png" alt="">
-	</div>
-	<div class="reload hide">
-			<span class="loader" ></span>
-	</div>
-	<div class="screen hide">
-		<div class="phone">
-			<img src="assets/phone.png" alt="">
-			<h1>USE LAPTOP INSTEAD</h1>
-		</div>
-	</div>
-	<div class="last_card hide">
-		<div class="results">
-			<div class="class">
-				<h1>keys: <span class="k">0</span></h1>
-				<a href="https://github.com/CodeAndCofe">
-					<img src="assets/github-mark.png" alt="github">
-				</a>
-			</div>
-			<button class="button">Try Agin?</button>
-		</div>
-	</div>
-	<script src="js/functions.js"></script>
-	<script src="js/game.js"></script>
-	<script src="js/index.js">
+<main class="app">
+	<header>
+		<div class="logo">barktype</div>
+		<a href="https://github.com/CodeAndCofe" target="_blank" rel="noopener">github</a>
+	</header>
 
-	</script>
+	<div class="config" id="config">
+		<span>time</span>
+		<button data-t="15">15</button>
+		<button data-t="30">30</button>
+		<button data-t="60">60</button>
+		<button data-t="120">120</button>
+		<input id="custom" type="number" min="5" max="600" placeholder="custom" aria-label="Custom time in seconds">
+	</div>
+
+	<section>
+		<div id="clock">30</div>
+		<div id="text"><p class="hint">Pick a time, then press Start. The text appears and the clock begins.</p></div>
+		<div id="result">
+			<div><small>wpm</small><b id="wpm">0</b></div>
+			<div><small>accuracy</small><b id="acc">0%</b></div>
+			<div><small>correct keys</small><b id="keys">0</b></div>
+		</div>
+	</section>
+
+	<div class="actions">
+		<button id="go">Start</button>
+		<span class="keys">Tab or Esc to stop</span>
+	</div>
+</main>
+
+<div class="mobile-note">Use a laptop with a keyboard to play.</div>
+<script src="js/global.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
